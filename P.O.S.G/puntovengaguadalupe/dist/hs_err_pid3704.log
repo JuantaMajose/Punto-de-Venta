@@ -1,0 +1,206 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (malloc) failed to allocate 32756 bytes for ChunkPool::allocate
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   In 32 bit mode, the process size limit was hit
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Use 64 bit Java on a 64 bit OS
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (allocation.cpp:211), pid=3704, tid=7336
+#
+# JRE version: Java(TM) SE Runtime Environment (7.0_67-b01) (build 1.7.0_67-b01)
+# Java VM: Java HotSpot(TM) Client VM (24.65-b04 mixed mode, sharing windows-x86 )
+# Failed to write core dump. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x02bba800):  JavaThread "C1 CompilerThread0" daemon [_thread_in_native, id=7336, stack(0x02f20000,0x02f70000)]
+
+Stack: [0x02f20000,0x02f70000],  sp=0x02f6f570,  free space=317k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0x190494]
+V  [jvm.dll+0x18a2a5]
+V  [jvm.dll+0x777f4]
+V  [jvm.dll+0x779dc]
+V  [jvm.dll+0x77d2a]
+V  [jvm.dll+0x8c164]
+V  [jvm.dll+0x188e8b]
+V  [jvm.dll+0x1cda9f]
+V  [jvm.dll+0x1d1781]
+V  [jvm.dll+0x268bce]
+V  [jvm.dll+0x2875ba]
+V  [jvm.dll+0x275f76]
+V  [jvm.dll+0x266def]
+V  [jvm.dll+0x266f8e]
+V  [jvm.dll+0x26706a]
+V  [jvm.dll+0x2671cc]
+V  [jvm.dll+0x267466]
+V  [jvm.dll+0x5f439]
+V  [jvm.dll+0x5fa3d]
+V  [jvm.dll+0x16252c]
+V  [jvm.dll+0x162f87]
+V  [jvm.dll+0x1a7489]
+C  [msvcr100.dll+0x5c556]
+C  [msvcr100.dll+0x5c600]
+C  [kernel32.dll+0xb50b]
+
+
+Current CompileTask:
+C1: 606006  118   !         sun.nio.cs.UnicodeDecoder::decodeLoop (326 bytes)
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x00949400 JavaThread "DestroyJavaVM" [_thread_blocked, id=6568, stack(0x00a30000,0x00a80000)]
+  0x02beb800 JavaThread "AWT-EventQueue-0" [_thread_in_Java, id=8876, stack(0x03400000,0x03450000)]
+  0x02beb400 JavaThread "AWT-Shutdown" [_thread_blocked, id=8872, stack(0x033b0000,0x03400000)]
+  0x031b6400 JavaThread "AWT-Windows" daemon [_thread_in_native, id=4112, stack(0x032c0000,0x03310000)]
+  0x0317dc00 JavaThread "Java2D Disposer" daemon [_thread_blocked, id=5900, stack(0x03220000,0x03270000)]
+  0x02bc8800 JavaThread "Service Thread" daemon [_thread_blocked, id=7340, stack(0x02f70000,0x02fc0000)]
+=>0x02bba800 JavaThread "C1 CompilerThread0" daemon [_thread_in_native, id=7336, stack(0x02f20000,0x02f70000)]
+  0x02bb8c00 JavaThread "Attach Listener" daemon [_thread_blocked, id=7328, stack(0x02ed0000,0x02f20000)]
+  0x02bb7800 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=7324, stack(0x02e80000,0x02ed0000)]
+  0x02b50000 JavaThread "Finalizer" daemon [_thread_blocked, id=7064, stack(0x02e30000,0x02e80000)]
+  0x02b4b000 JavaThread "Reference Handler" daemon [_thread_blocked, id=7060, stack(0x02de0000,0x02e30000)]
+
+Other Threads:
+  0x02b49400 VMThread [stack: 0x02d90000,0x02de0000] [id=7056]
+  0x02bdc400 WatcherThread [stack: 0x02fc0000,0x03010000] [id=7344]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap
+ def new generation   total 4928K, used 4001K [0x22c00000, 0x23150000, 0x28150000)
+  eden space 4416K,  90% used [0x22c00000, 0x22fe8678, 0x23050000)
+  from space 512K,   0% used [0x23050000, 0x23050000, 0x230d0000)
+  to   space 512K,   0% used [0x230d0000, 0x230d0000, 0x23150000)
+ tenured generation   total 10944K, used 0K [0x28150000, 0x28c00000, 0x32c00000)
+   the space 10944K,   0% used [0x28150000, 0x28150000, 0x28150200, 0x28c00000)
+ compacting perm gen  total 12288K, used 1204K [0x32c00000, 0x33800000, 0x36c00000)
+   the space 12288K,   9% used [0x32c00000, 0x32d2d2e0, 0x32d2d400, 0x33800000)
+    ro space 10240K,  42% used [0x36c00000, 0x37034650, 0x37034800, 0x37600000)
+    rw space 12288K,  52% used [0x37600000, 0x37c4be40, 0x37c4c000, 0x38200000)
+
+Card table byte_map: [0x02c30000,0x02ce0000] byte_map_base: 0x02b1a000
+
+Polling page: 0x00a80000
+
+Code Cache  [0x00ab0000, 0x00b88000, 0x02ab0000)
+ total_blobs=327 nmethods=117 adapters=147 free_code_cache=31935Kb largest_free_block=32702080
+
+Compilation events (10 events):
+Event: 588.096 Thread 0x02bba800 nmethod 112 0x00b7f588 code [0x00b7f680, 0x00b7f700]
+Event: 588.473 Thread 0x02bba800  113             java.nio.Buffer::remaining (10 bytes)
+Event: 588.473 Thread 0x02bba800 nmethod 113 0x00b7f748 code [0x00b7f840, 0x00b7f8c0]
+Event: 590.696 Thread 0x02bba800  114             java.nio.Buffer::position (43 bytes)
+Event: 590.697 Thread 0x02bba800 nmethod 114 0x00b7fb88 code [0x00b7fc90, 0x00b7fd9c]
+Event: 596.106 Thread 0x02bba800  116             java.nio.Buffer::position (5 bytes)
+Event: 596.106 Thread 0x02bba800 nmethod 116 0x00b7fe08 code [0x00b7ff00, 0x00b7ff80]
+Event: 599.766 Thread 0x02bba800  117             java.nio.Buffer::hasRemaining (17 bytes)
+Event: 599.766 Thread 0x02bba800 nmethod 117 0x00b7ffc8 code [0x00b800c0, 0x00b80150]
+Event: 602.506 Thread 0x02bba800  118   !         sun.nio.cs.UnicodeDecoder::decodeLoop (326 bytes)
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (0 events):
+No events
+
+Internal exceptions (10 events):
+Event: 167.805 Thread 0x00949400 Threw 0x22dfe7f0 at C:\re\jdk7u67\1368\hotspot\src\share\vm\prims\jvm.cpp:1244
+Event: 168.558 Thread 0x00949400 Threw 0x22e08810 at C:\re\jdk7u67\1368\hotspot\src\share\vm\prims\jvm.cpp:1244
+Event: 168.558 Thread 0x00949400 Threw 0x22e0f6a8 at C:\re\jdk7u67\1368\hotspot\src\share\vm\prims\jvm.cpp:1244
+Event: 187.400 Thread 0x00949400 Threw 0x22e5ea28 at C:\re\jdk7u67\1368\hotspot\src\share\vm\prims\jvm.cpp:1244
+Event: 197.487 Thread 0x02beb800 Threw 0x22e723c0 at C:\re\jdk7u67\1368\hotspot\src\share\vm\prims\jvm.cpp:1244
+Event: 198.106 Thread 0x02beb800 Threw 0x22e79448 at C:\re\jdk7u67\1368\hotspot\src\share\vm\prims\jvm.cpp:1244
+Event: 198.537 Thread 0x02beb800 Threw 0x22e98998 at C:\re\jdk7u67\1368\hotspot\src\share\vm\prims\jvm.cpp:1244
+Event: 198.537 Thread 0x02beb800 Threw 0x22e9fa20 at C:\re\jdk7u67\1368\hotspot\src\share\vm\prims\jvm.cpp:1244
+Event: 282.157 Thread 0x02beb800 Threw 0x22f1f0c8 at C:\re\jdk7u67\1368\hotspot\src\share\vm\prims\jvm.cpp:1244
+Event: 282.159 Thread 0x02beb800 Threw 0x22f206a0 at C:\re\jdk7u67\1368\hotspot\src\share\vm\prims\jvm.cpp:1244
+
+Events (10 events):
+Event: 448.911 loading class 0x3826c770
+Event: 448.962 loading class 0x3826c770 done
+Event: 530.591 loading class 0x382fa4f8
+Event: 530.591 loading class 0x382fa4f8 done
+Event: 549.968 loading class 0x382f9240
+Event: 549.969 loading class 0x382f9240 done
+Event: 549.970 loading class 0x382fa578
+Event: 549.971 loading class 0x382fa578 done
+Event: 568.365 loading class 0x03183f68
+Event: 568.365 loading class 0x03183f68 done
+
+
+Dynamic libraries:
+0x00400000 - 0x0042f000 	C:\Archivos de programa\Java\jre7\bin\javaw.exe
+0x7c910000 - 0x7c9c6000 	C:\WINDOWS\system32\ntdll.dll
+0x7c800000 - 0x7c901000 	C:\WINDOWS\system32\kernel32.dll
+0x77da0000 - 0x77e4c000 	C:\WINDOWS\system32\ADVAPI32.dll
+0x77e50000 - 0x77ee1000 	C:\WINDOWS\system32\RPCRT4.dll
+0x77d10000 - 0x77da0000 	C:\WINDOWS\system32\USER32.dll
+0x77ef0000 - 0x77f36000 	C:\WINDOWS\system32\GDI32.dll
+0x773a0000 - 0x774a2000 	C:\WINDOWS\WinSxS\x86_Microsoft.Windows.Common-Controls_6595b64144ccf1df_6.0.2600.2180_x-ww_a84f1ff9\COMCTL32.dll
+0x77be0000 - 0x77c38000 	C:\WINDOWS\system32\msvcrt.dll
+0x77f40000 - 0x77fb6000 	C:\WINDOWS\system32\SHLWAPI.dll
+0x78aa0000 - 0x78b5f000 	C:\Archivos de programa\Java\jre7\bin\msvcr100.dll
+0x6e770000 - 0x6eaf8000 	C:\Archivos de programa\Java\jre7\bin\client\jvm.dll
+0x71a50000 - 0x71a5a000 	C:\WINDOWS\system32\WSOCK32.dll
+0x71a30000 - 0x71a47000 	C:\WINDOWS\system32\WS2_32.dll
+0x71a20000 - 0x71a28000 	C:\WINDOWS\system32\WS2HELP.dll
+0x76b00000 - 0x76b2e000 	C:\WINDOWS\system32\WINMM.dll
+0x76bb0000 - 0x76bbb000 	C:\WINDOWS\system32\PSAPI.DLL
+0x6e6c0000 - 0x6e6cc000 	C:\Archivos de programa\Java\jre7\bin\verify.dll
+0x6d480000 - 0x6d4a0000 	C:\Archivos de programa\Java\jre7\bin\java.dll
+0x6e750000 - 0x6e763000 	C:\Archivos de programa\Java\jre7\bin\zip.dll
+0x6d000000 - 0x6d143000 	C:\Archivos de programa\Java\jre7\bin\awt.dll
+0x770f0000 - 0x7717c000 	C:\WINDOWS\system32\OLEAUT32.dll
+0x774b0000 - 0x775ec000 	C:\WINDOWS\system32\ole32.dll
+0x5b150000 - 0x5b188000 	C:\WINDOWS\system32\uxtheme.dll
+0x746b0000 - 0x746fb000 	C:\WINDOWS\system32\MSCTF.dll
+0x7c9d0000 - 0x7d1ee000 	C:\WINDOWS\system32\SHELL32.dll
+0x6d270000 - 0x6d2a9000 	C:\Archivos de programa\Java\jre7\bin\fontmanager.dll
+0x76340000 - 0x7635d000 	C:\WINDOWS\system32\IMM32.dll
+0x76f90000 - 0x7700f000 	C:\WINDOWS\system32\CLBCATQ.DLL
+0x77010000 - 0x770e0000 	C:\WINDOWS\system32\COMRes.dll
+0x77bd0000 - 0x77bd8000 	C:\WINDOWS\system32\VERSION.dll
+0x6e4b0000 - 0x6e4c4000 	C:\Archivos de programa\Java\jre7\bin\net.dll
+0x6e4d0000 - 0x6e4df000 	C:\Archivos de programa\Java\jre7\bin\nio.dll
+
+VM Arguments:
+java_command: C:\puntovengaguadalupe\dist\puntovengaguadalupe.jar
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+PATH=C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem
+USERNAME=Administrador
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=x86 Family 15 Model 4 Stepping 1, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows XP Build 2600 Service Pack 2
+
+CPU:total 2 (1 cores per cpu, 2 threads per core) family 15 model 4 stepping 1, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ht, tsc
+
+Memory: 4k page, physical 1538540k(4852k free), swap 5578504k(5728k free)
+
+vm_info: Java HotSpot(TM) Client VM (24.65-b04) for windows-x86 JRE (1.7.0_67-b01), built on Jul 25 2014 10:20:53 by "java_re" with unknown MS VC++:1600
+
+time: Thu Jun 25 08:22:44 2015
+elapsed time: 607 seconds
+

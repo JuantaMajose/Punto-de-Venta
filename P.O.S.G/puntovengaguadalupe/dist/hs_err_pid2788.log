@@ -1,0 +1,239 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (malloc) failed to allocate 32756 bytes for ChunkPool::allocate
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   In 32 bit mode, the process size limit was hit
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Use 64 bit Java on a 64 bit OS
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (allocation.cpp:211), pid=2788, tid=5696
+#
+# JRE version: Java(TM) SE Runtime Environment (7.0_67-b01) (build 1.7.0_67-b01)
+# Java VM: Java HotSpot(TM) Client VM (24.65-b04 mixed mode, sharing windows-x86 )
+# Failed to write core dump. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x02bf0800):  JavaThread "AWT-EventQueue-0" [_thread_in_vm, id=5696, stack(0x033b0000,0x03400000)]
+
+Stack: [0x033b0000,0x03400000],  sp=0x033fea04,  free space=314k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0x190494]
+V  [jvm.dll+0x18a2a5]
+V  [jvm.dll+0x777f4]
+V  [jvm.dll+0x779dc]
+V  [jvm.dll+0x77d2a]
+V  [jvm.dll+0x8c164]
+V  [jvm.dll+0xbd9e1]
+C  [verify.dll+0x2076]
+C  [verify.dll+0x2fcc]
+C  [verify.dll+0x4bd3]
+C  [verify.dll+0x4f32]
+
+Java frames: (J=compiled Java code, j=interpreted, Vv=VM code)
+j  com.mysql.jdbc.NonRegisteringDriver.connect(Ljava/lang/String;Ljava/util/Properties;)Ljava/sql/Connection;+89
+j  java.sql.DriverManager.getConnection(Ljava/lang/String;Ljava/util/Properties;Ljava/lang/Class;)Ljava/sql/Connection;+172
+j  java.sql.DriverManager.getConnection(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/sql/Connection;+37
+j  conexion.conexion.getConexion()Lcom/mysql/jdbc/Connection;+19
+j  transacciones.TransaccionesLogin.verificarExistenUsuarios()I+9
+j  formularios.Login.verificarSiExistenUsuarios()V+29
+j  formularios.Login.<init>()V+9
+j  formularios.Login$3.run()V+4
+j  java.awt.event.InvocationEvent.dispatch()V+47
+j  java.awt.EventQueue.dispatchEventImpl(Ljava/awt/AWTEvent;Ljava/lang/Object;)V+21
+j  java.awt.EventQueue.access$200(Ljava/awt/EventQueue;Ljava/awt/AWTEvent;Ljava/lang/Object;)V+3
+j  java.awt.EventQueue$3.run()Ljava/lang/Void;+12
+j  java.awt.EventQueue$3.run()Ljava/lang/Object;+1
+v  ~StubRoutines::call_stub
+j  java.security.AccessController.doPrivileged(Ljava/security/PrivilegedAction;Ljava/security/AccessControlContext;)Ljava/lang/Object;+0
+j  java.security.ProtectionDomain$1.doIntersectionPrivilege(Ljava/security/PrivilegedAction;Ljava/security/AccessControlContext;Ljava/security/AccessControlContext;)Ljava/lang/Object;+28
+j  java.awt.EventQueue.dispatchEvent(Ljava/awt/AWTEvent;)V+46
+j  java.awt.EventDispatchThread.pumpOneEventForFilters(I)V+245
+j  java.awt.EventDispatchThread.pumpEventsForFilter(ILjava/awt/Conditional;Ljava/awt/EventFilter;)V+35
+j  java.awt.EventDispatchThread.pumpEventsForHierarchy(ILjava/awt/Conditional;Ljava/awt/Component;)V+11
+j  java.awt.EventDispatchThread.pumpEvents(ILjava/awt/Conditional;)V+4
+j  java.awt.EventDispatchThread.pumpEvents(Ljava/awt/Conditional;)V+3
+j  java.awt.EventDispatchThread.run()V+9
+v  ~StubRoutines::call_stub
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x0345f800 JavaThread "Abandoned connection cleanup thread" daemon [_thread_blocked, id=9052, stack(0x03400000,0x03450000)]
+  0x00949400 JavaThread "DestroyJavaVM" [_thread_blocked, id=3176, stack(0x00a30000,0x00a80000)]
+=>0x02bf0800 JavaThread "AWT-EventQueue-0" [_thread_in_vm, id=5696, stack(0x033b0000,0x03400000)]
+  0x02bf0400 JavaThread "AWT-Shutdown" [_thread_blocked, id=5692, stack(0x03270000,0x032c0000)]
+  0x03160800 JavaThread "AWT-Windows" daemon [_thread_in_native, id=5020, stack(0x032c0000,0x03310000)]
+  0x02c09400 JavaThread "Java2D Disposer" daemon [_thread_blocked, id=5012, stack(0x03220000,0x03270000)]
+  0x02bc5400 JavaThread "Service Thread" daemon [_thread_blocked, id=1760, stack(0x02f70000,0x02fc0000)]
+  0x02bbac00 JavaThread "C1 CompilerThread0" daemon [_thread_blocked, id=120, stack(0x02f20000,0x02f70000)]
+  0x02bb8c00 JavaThread "Attach Listener" daemon [_thread_blocked, id=572, stack(0x02ed0000,0x02f20000)]
+  0x02bb7800 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=2516, stack(0x02e80000,0x02ed0000)]
+  0x02b50000 JavaThread "Finalizer" daemon [_thread_blocked, id=3840, stack(0x02e30000,0x02e80000)]
+  0x02b4b000 JavaThread "Reference Handler" daemon [_thread_blocked, id=3836, stack(0x02de0000,0x02e30000)]
+
+Other Threads:
+  0x02b49400 VMThread [stack: 0x02d90000,0x02de0000] [id=3832]
+  0x02bdc800 WatcherThread [stack: 0x02fc0000,0x03010000] [id=1584]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap
+ def new generation   total 4928K, used 3499K [0x22c00000, 0x23150000, 0x28150000)
+  eden space 4416K,  67% used [0x22c00000, 0x22eeada8, 0x23050000)
+  from space 512K, 100% used [0x230d0000, 0x23150000, 0x23150000)
+  to   space 512K,   0% used [0x23050000, 0x23050000, 0x230d0000)
+ tenured generation   total 10944K, used 857K [0x28150000, 0x28c00000, 0x32c00000)
+   the space 10944K,   7% used [0x28150000, 0x28226468, 0x28226600, 0x28c00000)
+ compacting perm gen  total 12288K, used 1753K [0x32c00000, 0x33800000, 0x36c00000)
+   the space 12288K,  14% used [0x32c00000, 0x32db67e0, 0x32db6800, 0x33800000)
+    ro space 10240K,  42% used [0x36c00000, 0x37034650, 0x37034800, 0x37600000)
+    rw space 12288K,  52% used [0x37600000, 0x37c4be40, 0x37c4c000, 0x38200000)
+
+Card table byte_map: [0x02c30000,0x02ce0000] byte_map_base: 0x02b1a000
+
+Polling page: 0x00a80000
+
+Code Cache  [0x00ab0000, 0x00ba8000, 0x02ab0000)
+ total_blobs=427 nmethods=199 adapters=165 free_code_cache=31804Kb largest_free_block=32567872
+
+Compilation events (10 events):
+Event: 501.868 Thread 0x02bbac00  194             java.util.zip.ZipFile::ensureOpen (37 bytes)
+Event: 501.869 Thread 0x02bbac00 nmethod 194 0x00b9e488 code [0x00b9e5a0, 0x00b9e718]
+Event: 508.229 Thread 0x02bbac00  195             java.util.zip.ZipCoder::getBytes (192 bytes)
+Event: 510.088 Thread 0x02bbac00 nmethod 195 0x00b9e7c8 code [0x00b9e9f0, 0x00b9f4e0]
+Event: 510.088 Thread 0x02bbac00  196             java.util.zip.ZipCoder::encoder (35 bytes)
+Event: 510.088 Thread 0x02bbac00 nmethod 196 0x00b9fe08 code [0x00b9ff10, 0x00b9fffc]
+Event: 515.099 Thread 0x02bbac00  198   !         java.util.zip.ZipFile::getEntry (86 bytes)
+Event: 515.100 Thread 0x02bbac00 nmethod 198 0x00ba0348 code [0x00ba0490, 0x00ba0838]
+Event: 524.693 Thread 0x02bbac00  199             sun.misc.URLClassPath::getResource (74 bytes)
+Event: 524.693 Thread 0x02bbac00 nmethod 199 0x00ba0ac8 code [0x00ba0be0, 0x00ba0ce8]
+
+GC Heap History (2 events):
+Event: 55.914 GC heap before
+{Heap before GC invocations=0 (full 0):
+ def new generation   total 4928K, used 4416K [0x22c00000, 0x23150000, 0x28150000)
+  eden space 4416K, 100% used [0x22c00000, 0x23050000, 0x23050000)
+  from space 512K,   0% used [0x23050000, 0x23050000, 0x230d0000)
+  to   space 512K,   0% used [0x230d0000, 0x230d0000, 0x23150000)
+ tenured generation   total 10944K, used 0K [0x28150000, 0x28c00000, 0x32c00000)
+   the space 10944K,   0% used [0x28150000, 0x28150000, 0x28150200, 0x28c00000)
+ compacting perm gen  total 12288K, used 1207K [0x32c00000, 0x33800000, 0x36c00000)
+   the space 12288K,   9% used [0x32c00000, 0x32d2dcf0, 0x32d2de00, 0x33800000)
+    ro space 10240K,  42% used [0x36c00000, 0x37034650, 0x37034800, 0x37600000)
+    rw space 12288K,  52% used [0x37600000, 0x37c4be40, 0x37c4c000, 0x38200000)
+Event: 55.945 GC heap after
+Heap after GC invocations=1 (full 0):
+ def new generation   total 4928K, used 512K [0x22c00000, 0x23150000, 0x28150000)
+  eden space 4416K,   0% used [0x22c00000, 0x22c00000, 0x23050000)
+  from space 512K, 100% used [0x230d0000, 0x23150000, 0x23150000)
+  to   space 512K,   0% used [0x23050000, 0x23050000, 0x230d0000)
+ tenured generation   total 10944K, used 857K [0x28150000, 0x28c00000, 0x32c00000)
+   the space 10944K,   7% used [0x28150000, 0x28226468, 0x28226600, 0x28c00000)
+ compacting perm gen  total 12288K, used 1207K [0x32c00000, 0x33800000, 0x36c00000)
+   the space 12288K,   9% used [0x32c00000, 0x32d2dcf0, 0x32d2de00, 0x33800000)
+    ro space 10240K,  42% used [0x36c00000, 0x37034650, 0x37034800, 0x37600000)
+    rw space 12288K,  52% used [0x37600000, 0x37c4be40, 0x37c4c000, 0x38200000)
+}
+
+Deoptimization events (0 events):
+No events
+
+Internal exceptions (10 events):
+Event: 431.627 Thread 0x02bf0800 Threw 0x22ddf2d0 at C:\re\jdk7u67\1368\hotspot\src\share\vm\prims\jvm.cpp:1244
+Event: 458.291 Thread 0x02bf0800 Threw 0x22e26028 at C:\re\jdk7u67\1368\hotspot\src\share\vm\prims\jvm.cpp:1244
+Event: 463.759 Thread 0x02bf0800 Threw 0x22e2c970 at C:\re\jdk7u67\1368\hotspot\src\share\vm\prims\jvm.cpp:1244
+Event: 466.600 Thread 0x02bf0800 Threw 0x22e34128 at C:\re\jdk7u67\1368\hotspot\src\share\vm\prims\jvm.cpp:1244
+Event: 468.508 Thread 0x02bf0800 Threw 0x22e3ae90 at C:\re\jdk7u67\1368\hotspot\src\share\vm\prims\jvm.cpp:1244
+Event: 479.657 Thread 0x02bf0800 Threw 0x22e4f720 at C:\re\jdk7u67\1368\hotspot\src\share\vm\prims\jvm.cpp:1244
+Event: 500.950 Thread 0x02bf0800 Threw 0x22e5d870 at C:\re\jdk7u67\1368\hotspot\src\share\vm\prims\jvm.cpp:1244
+Event: 507.248 Thread 0x02bf0800 Threw 0x22e955a8 at C:\re\jdk7u67\1368\hotspot\src\share\vm\prims\jvm.cpp:1244
+Event: 514.204 Thread 0x02bf0800 Threw 0x22e9c460 at C:\re\jdk7u67\1368\hotspot\src\share\vm\prims\jvm.cpp:1244
+Event: 524.693 Thread 0x02bf0800 Threw 0x22eac6a8 at C:\re\jdk7u67\1368\hotspot\src\share\vm\prims\jvm.cpp:1244
+
+Events (10 events):
+Event: 479.657 loading class 0x03485908
+Event: 479.657 loading class 0x03485908 done
+Event: 499.970 loading class 0x0345ec68
+Event: 499.970 loading class 0x0345ec68 done
+Event: 507.248 loading class 0x031da9c0
+Event: 507.248 loading class 0x031da9c0 done
+Event: 514.204 loading class 0x034cfe50
+Event: 514.204 loading class 0x034cfe50 done
+Event: 524.692 loading class 0x034863d0
+Event: 524.692 loading class 0x034863d0 done
+
+
+Dynamic libraries:
+0x00400000 - 0x0042f000 	C:\Archivos de programa\Java\jre7\bin\javaw.exe
+0x7c910000 - 0x7c9c6000 	C:\WINDOWS\system32\ntdll.dll
+0x7c800000 - 0x7c901000 	C:\WINDOWS\system32\kernel32.dll
+0x77da0000 - 0x77e4c000 	C:\WINDOWS\system32\ADVAPI32.dll
+0x77e50000 - 0x77ee1000 	C:\WINDOWS\system32\RPCRT4.dll
+0x77d10000 - 0x77da0000 	C:\WINDOWS\system32\USER32.dll
+0x77ef0000 - 0x77f36000 	C:\WINDOWS\system32\GDI32.dll
+0x773a0000 - 0x774a2000 	C:\WINDOWS\WinSxS\x86_Microsoft.Windows.Common-Controls_6595b64144ccf1df_6.0.2600.2180_x-ww_a84f1ff9\COMCTL32.dll
+0x77be0000 - 0x77c38000 	C:\WINDOWS\system32\msvcrt.dll
+0x77f40000 - 0x77fb6000 	C:\WINDOWS\system32\SHLWAPI.dll
+0x78aa0000 - 0x78b5f000 	C:\Archivos de programa\Java\jre7\bin\msvcr100.dll
+0x6e770000 - 0x6eaf8000 	C:\Archivos de programa\Java\jre7\bin\client\jvm.dll
+0x71a50000 - 0x71a5a000 	C:\WINDOWS\system32\WSOCK32.dll
+0x71a30000 - 0x71a47000 	C:\WINDOWS\system32\WS2_32.dll
+0x71a20000 - 0x71a28000 	C:\WINDOWS\system32\WS2HELP.dll
+0x76b00000 - 0x76b2e000 	C:\WINDOWS\system32\WINMM.dll
+0x76bb0000 - 0x76bbb000 	C:\WINDOWS\system32\PSAPI.DLL
+0x6e6c0000 - 0x6e6cc000 	C:\Archivos de programa\Java\jre7\bin\verify.dll
+0x6d480000 - 0x6d4a0000 	C:\Archivos de programa\Java\jre7\bin\java.dll
+0x6e750000 - 0x6e763000 	C:\Archivos de programa\Java\jre7\bin\zip.dll
+0x6d000000 - 0x6d143000 	C:\Archivos de programa\Java\jre7\bin\awt.dll
+0x770f0000 - 0x7717c000 	C:\WINDOWS\system32\OLEAUT32.dll
+0x774b0000 - 0x775ec000 	C:\WINDOWS\system32\ole32.dll
+0x5b150000 - 0x5b188000 	C:\WINDOWS\system32\uxtheme.dll
+0x746b0000 - 0x746fb000 	C:\WINDOWS\system32\MSCTF.dll
+0x7c9d0000 - 0x7d1ee000 	C:\WINDOWS\system32\SHELL32.dll
+0x6d270000 - 0x6d2a9000 	C:\Archivos de programa\Java\jre7\bin\fontmanager.dll
+0x76340000 - 0x7635d000 	C:\WINDOWS\system32\IMM32.dll
+0x76f90000 - 0x7700f000 	C:\WINDOWS\system32\CLBCATQ.DLL
+0x77010000 - 0x770e0000 	C:\WINDOWS\system32\COMRes.dll
+0x77bd0000 - 0x77bd8000 	C:\WINDOWS\system32\VERSION.dll
+0x6e4b0000 - 0x6e4c4000 	C:\Archivos de programa\Java\jre7\bin\net.dll
+0x6e4d0000 - 0x6e4df000 	C:\Archivos de programa\Java\jre7\bin\nio.dll
+0x6e670000 - 0x6e6a0000 	C:\Archivos de programa\Java\jre7\bin\t2k.dll
+
+VM Arguments:
+java_command: C:\puntovengaguadalupe\dist\puntovengaguadalupe.jar
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+PATH=C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem
+USERNAME=Administrador
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=x86 Family 15 Model 4 Stepping 1, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows XP Build 2600 Service Pack 2
+
+CPU:total 2 (1 cores per cpu, 2 threads per core) family 15 model 4 stepping 1, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ht, tsc
+
+Memory: 4k page, physical 1538540k(5016k free), swap 5578504k(5348k free)
+
+vm_info: Java HotSpot(TM) Client VM (24.65-b04) for windows-x86 JRE (1.7.0_67-b01), built on Jul 25 2014 10:20:53 by "java_re" with unknown MS VC++:1600
+
+time: Thu Jun 25 08:21:32 2015
+elapsed time: 569 seconds
+
